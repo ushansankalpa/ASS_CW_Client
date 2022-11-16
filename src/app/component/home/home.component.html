@@ -1,2 +1,15 @@
 
-<div style="margin-left:200px;">{{url}}</div>
+<div style="margin-left:400px;">{{url}}</div>
+<div class="col-md-12" style="margin-left:400px;">
+    <div *ngFor="let qs of questions">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{qs.question_title}}</h5>
+              <p class="card-text">{{qs.question_des}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </div>
+</div>
+

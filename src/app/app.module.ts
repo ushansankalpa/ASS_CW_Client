@@ -9,6 +9,9 @@ import { HomeComponent } from './component/home/home.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { UserprofileComponent } from './component/userprofile/userprofile.component';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,15 @@ import { SidenavComponent } from './component/sidenav/sidenav.component';
     RegisterComponent,
     HomeComponent,
     UserprofileComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule, 
+      ReactiveFormsModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

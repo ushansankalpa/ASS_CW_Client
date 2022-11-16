@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageService } from './home.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     imports: [
-        HttpClientModule
+        FormsModule, 
+      ReactiveFormsModule
     ],
     exports: [RouterModule],
   })
-export class HomeModule{}
+export class LoginModule{}

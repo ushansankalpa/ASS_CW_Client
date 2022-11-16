@@ -14,6 +14,7 @@ export class AppComponent {
   blankUrl = '';
 	currentUrl: string = '';
 	checkoutUrls = ['/'];
+  checkoutRegUrls = ['/register'];
 	constructor(private router: Router) {
 
       // this.router.events.pipe(
@@ -66,7 +67,8 @@ export class AppComponent {
 			return false;
 		}
 		const index = this.checkoutUrls.indexOf(this.currentUrl);
-		if (index >= 0) {
+    const index2 = this.checkoutRegUrls.indexOf(this.currentUrl);
+		if ((index >= 0) || (index2 >= 0)) {
 			return true;
 		} else {
 			return false;

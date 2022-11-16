@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: window.location.protocol+ '//'+window.location.hostname + '/cwdemo'
+  //apiUrl: window.location.protocol+ '//'+window.location.hostname + '/cwdemo'
+  apiUrl: 'http://localhost/20191142_cw1/index.php'
 };
 
 /*
