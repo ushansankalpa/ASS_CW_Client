@@ -12,6 +12,10 @@ import { SidenavComponent } from './component/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule, 
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      MatCardModule,
+      MatButtonModule,
+      MatExpansionModule,
+      MatIconModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
