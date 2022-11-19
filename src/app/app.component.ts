@@ -9,12 +9,23 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public collapsed = false;
   title = 'techqweb';
 
   blankUrl = '';
 	currentUrl: string = '';
 	checkoutUrls = ['/'];
   checkoutRegUrls = ['/register'];
+  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
+
+  isExpanded = true;
+  state = 'collapsed';
+ 
+  toggleSidenav() {
+    this.isExpanded = !this.isExpanded;
+    this.collapsed = !this.collapsed
+  }
+
 	constructor(private router: Router) {
 
       // this.router.events.pipe(

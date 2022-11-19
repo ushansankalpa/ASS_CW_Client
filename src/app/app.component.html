@@ -1,4 +1,4 @@
-<div >
+<!-- <div >
     <app-sidenav *ngIf="blankUrl || !isCheckoutRoute()"></app-sidenav>
     
     <div id="main">
@@ -6,4 +6,151 @@
      
     </div>
     
-</div>
+</div> -->
+
+
+<!-- <ng-container >
+  <mat-toolbar class="example-header" *ngIf="blankUrl || !isCheckoutRoute()">Header</mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav" [fixedInViewport]="false"  *ngIf="blankUrl || !isCheckoutRoute()">
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div >
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <mat-toolbar class="example-footer" *ngIf="blankUrl || !isCheckoutRoute()">Footer</mat-toolbar>
+</ng-container> -->
+
+
+<!-- <div id="wrapper">
+	<nav id="sidebar" [class.collapsed]="collapsed">
+		<div class="header">
+			<a href="index.html">
+        <img src="//dev-sourcing.s3.amazonaws.com/assets/logowhite.svg" width="119px" alt="apiax logo" class="logoLarge"/>
+        <img src="https://dev-sourcing.s3.amazonaws.com/assets/logosmall.svg" width="119px" alt="apiax logo" class="logoSmall"/>
+      </a>
+		</div>
+		<span class="divider"></span>
+		
+		<span class="divider"></span>
+		<ul class="navigation">
+			<li>
+				<a href="#" tooltip="Dashboard"><i> <mat-icon>home</mat-icon> </i><span>Home</span></a>
+			</li>
+      <li>
+				<a href="#" tooltip="Rules" ><i> <mat-icon>person</mat-icon> </i><span>Profile</span></a>
+			</li>
+      <li>
+				<a href="#" tooltip="Taxonomy"><i> <mat-icon>search</mat-icon> </i><span>Search</span></a>
+			</li>
+      <li>
+				<a href="#" tooltip="Reporting"><i> <mat-icon>bookmark</mat-icon> </i><span>Bookmark</span></a>
+			</li>
+      <li>
+				<a href="#" tooltip="Products"><i> <mat-icon>feed</mat-icon> </i><span>Feed</span></a>
+			</li>
+      <li>
+        <div class="divider"></div>
+      </li>
+      
+      <li>
+				<a href="#" tooltip="Help & Faqs"><i> <mat-icon>info</mat-icon> </i><span>Help & FAQs</span></a>
+			</li>
+		</ul>
+    <div class="expandBtn">
+      <span id="sidebarCollapse"><mat-icon [class.fa-compress]="!collapsed" [class.fa-expand]="collapsed" (click)="collapsed = !collapsed">compare_arrows</mat-icon></span>
+    </div>
+	</nav>
+
+	<div id="content">
+    <div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					joana 
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+<ng-container>
+  <ng-sidenav-container>
+    <ng-sidenav
+      [expanded]="isExpanded"
+      [drawerState]="state"
+      [drawerWidth]="'250px'"
+      [drawerWidthCollapsed]="'65px'"
+      [color]="'#0072C0'"
+      class="side-navbar"
+      *ngIf="blankUrl || !isCheckoutRoute()">
+  
+      <nav id="side-bar" [class.collapsed]="collapsed">
+        <div class="header">
+          <div class="head-title" *ngIf="isExpanded">
+            <p>Techq</p>
+          </div>
+          
+        </div>
+        <span class="divider"></span>
+        <span class="divider"></span>
+        
+        <ul class="navigation">
+          <li>
+            <p routerLink="/home/" routerLinkActive="active"><i> <mat-icon>home</mat-icon> </i><span *ngIf="isExpanded" >Home</span></p>
+          </li>
+          <li>
+            <p routerLink="/profile/" routerLinkActive="active" ><i> <mat-icon>person</mat-icon> </i><span *ngIf="isExpanded" >Profile</span></p>
+          </li>
+          <li>
+            <p href="/search/" routerLinkActive="active"><i> <mat-icon>search</mat-icon> </i ><span *ngIf="isExpanded" >Search</span></p>
+          </li>
+          <li>
+            <p href="/bookmark/" routerLinkActive="active"><i> <mat-icon>bookmark</mat-icon> </i><span *ngIf="isExpanded">Bookmark</span></p>
+          </li>
+          <li>
+            <p href="/feed/" routerLinkActive="active"><i> <mat-icon>feed</mat-icon> </i><span *ngIf="isExpanded">Feed</span></p>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          
+          <li>
+            <p href="/help/" routerLinkActive="active"><i> <mat-icon>info</mat-icon> </i><span *ngIf="isExpanded">Help & FAQs</span></p>
+          </li>
+        </ul>
+        <div class="expandBtn">
+          <span id="sidebarCollapse"><i><mat-icon (click)="toggleSidenav()">compare_arrows</mat-icon></i></span>
+        </div>
+      </nav>
+    </ng-sidenav>
+    <ng-sidenav-content class="side-nav-content">
+      <mat-toolbar class="toolbar-header" *ngIf="blankUrl || !isCheckoutRoute()">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+    
+        <span class="example-spacer"></span>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon style="font-size: 25px;">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Sign out</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar>
+  
+      <router-outlet></router-outlet>
+
+      <mat-toolbar class="example-footer" *ngIf="blankUrl || !isCheckoutRoute()">Footer</mat-toolbar>
+    </ng-sidenav-content>
+  </ng-sidenav-container>
+
+</ng-container>
