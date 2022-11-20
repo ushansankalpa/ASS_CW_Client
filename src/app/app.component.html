@@ -79,7 +79,71 @@
 </div> -->
 
 <ng-container>
-  <ng-sidenav-container>
+
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+    <mat-toolbar class="example-toolbar toolbar-header" *ngIf="blankUrl || !isCheckoutRoute()">
+      <button mat-icon-button (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">TECHQ WEB</h1>
+      <span class="example-spacer"></span>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon style="font-size: 25px;">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Sign out</span>
+          </button>
+        </mat-menu>
+
+        
+
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container" 
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="isExpanded" class="sidenav-bar"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" *ngIf="blankUrl || !isCheckoutRoute()">
+                   <nav id="side-bar" [class.collapsed]="collapsed">
+                    
+                    <span class="divider"></span>
+                    
+                    <ul class="navigation">
+                      <li>
+                        <p routerLink="/home/" routerLinkActive="active"><i> <mat-icon>home</mat-icon> </i> <span *ngIf="isExpanded" >Home</span></p>
+                      </li>
+                      <li>
+                        <p routerLink="/profile/" routerLinkActive="active" ><i> <mat-icon>person</mat-icon> </i><span *ngIf="isExpanded" >Profile</span></p>
+                      </li>
+                      <li>
+                        <p routerLink="/search/" routerLinkActive="active"><i> <mat-icon>search</mat-icon> </i ><span *ngIf="isExpanded" >Search</span></p>
+                      </li>
+                      <li>
+                        <p routerLink="/bookmark/" routerLinkActive="active"><i> <mat-icon>bookmark</mat-icon> </i><span *ngIf="isExpanded">Bookmark</span></p>
+                      </li>
+                      <li>
+                        <p routerLink="/feed/" routerLinkActive="active"><i> <mat-icon>feed</mat-icon> </i><span *ngIf="isExpanded">Feed</span></p>
+                      </li>
+                      <li>
+                        <div class="divider"></div>
+                      </li>
+                      
+                      <li>
+                        <p href="/help/" routerLinkActive="active"><i> <mat-icon>info</mat-icon> </i><span *ngIf="isExpanded">Help & FAQs</span></p>
+                      </li>
+                    </ul>
+                    
+                  </nav>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+
+
+  <!-- <ng-sidenav-container>
     <ng-sidenav
       [expanded]="isExpanded"
       [drawerState]="state"
@@ -151,6 +215,6 @@
 
       <mat-toolbar class="example-footer" *ngIf="blankUrl || !isCheckoutRoute()">Footer</mat-toolbar>
     </ng-sidenav-content>
-  </ng-sidenav-container>
+  </ng-sidenav-container> -->
 
 </ng-container>

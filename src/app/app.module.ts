@@ -19,7 +19,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {SidenavModule} from 'angular-ng-sidenav';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,6 @@ import {SidenavModule} from 'angular-ng-sidenav';
       MatToolbarModule,
       MatMenuModule,
       MatSidenavModule,
-      SidenavModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

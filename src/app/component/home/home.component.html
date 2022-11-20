@@ -1,18 +1,24 @@
+
+
 <div class="row" style="margin: 0;">
   <!-- <div class="col-md-1">
   </div> -->
 
 
-  <div class="col-md-8">
+  <div class="col-md-9">
     <div class="container">
+      <mat-card style="margin-top:10px; text-align:center;background-color: rgb(234, 234, 234);">
+        <button mat-raised-button color="primary" style="width: 277px;">Post a Question</button>
+      </mat-card>
+
       <div *ngFor="let qs of questions" style="justify-content: center;" class="row justify-content-center">
         <mat-card class="example-card" >
           <p>
-            <mat-toolbar >
+            <mat-toolbar class="post-toolbar">
               <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                 <mat-icon>account_circle</mat-icon>
               </button>
-              <span>User</span>
+              <span>{{qs.first_name}} {{qs.last_name}}</span>
               <span class="example-spacer"></span>
               <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
@@ -29,7 +35,7 @@
 
           <mat-card-header>
             <mat-card-title>{{qs.question_title}}</mat-card-title>
-            <mat-card-subtitle>{{qs.question_tag}}</mat-card-subtitle>
+            <!-- <mat-card-subtitle>{{qs.question_tag}}</mat-card-subtitle> -->
           </mat-card-header>
 
           <mat-card-content style="min-height: 150px; padding-top: 10px;">
@@ -69,6 +75,10 @@
 
   <div class="col-md-3">
     <div class="container">
+      <mat-card style="margin-top:10px; text-align:center;background-color: rgb(234, 234, 234);">
+        <button mat-raised-button color="primary">Search</button>
+      </mat-card>
+
       <mat-card class="example-card">
         <mat-card-content>Recent Bookmark</mat-card-content>
       </mat-card>

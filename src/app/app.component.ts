@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 
 @Component({
@@ -20,24 +21,19 @@ export class AppComponent {
 
   isExpanded = true;
   state = 'collapsed';
+
+  mobileQuery!: MediaQueryList;
+  private _mobileQueryListener!: () => void;
  
   toggleSidenav() {
     this.isExpanded = !this.isExpanded;
     this.collapsed = !this.collapsed
   }
 
-	constructor(private router: Router) {
-
-      // this.router.events.pipe(
-      //   filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-      //   map(e => {
-      //     // e is now NavigationEnd
-      //     this.currentUrl = e.url;
-      //     // setTimeout(callback => {
-      //     //   window.scrollTo(0, 0);
-      //     // }, 100)
-      //   })
-      // );
+	constructor(private router: Router,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
 		
 	}
 
@@ -85,4 +81,9 @@ export class AppComponent {
 			return false;
 		}
 	}
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
 }

@@ -1,8 +1,16 @@
 .example-card {
-    max-width: 750px;
+    max-width: 850px;
     margin: 10px 0 10px 0;
+    background-color: #f7f7f7;
   }
 
   .example-spacer {
     flex: 1 1 auto;
+  }
+
+  .post-toolbar{
+    background-color: #0072c0;
+    color: white;
+    height: 38px;
+    font-size: 17px;
   }
