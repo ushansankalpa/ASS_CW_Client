@@ -1,24 +1,31 @@
 
 
-<div class="row" style="margin: 0;">
-  <!-- <div class="col-md-1">
-  </div> -->
+<div class="row" style="margin: 0;background-color: #f5f5f5;">
+  <div class="col-md-1">
+  </div>
 
 
-  <div class="col-md-9">
+  <div class="col-md-8" style="background-color: #ffffff;">
     <div class="container">
       <mat-card style="margin-top:10px; text-align:center;background-color: rgb(234, 234, 234);">
-        <button mat-raised-button color="primary" style="width: 277px;">Post a Question</button>
+        <button mat-raised-button color="primary" style="width: 277px;font-family: 'Catamaran', sans-serif;font-size: 20px;">Ask a Question</button>
       </mat-card>
 
       <div *ngFor="let qs of questions" style="justify-content: center;" class="row justify-content-center">
         <mat-card class="example-card" >
           <p>
             <mat-toolbar class="post-toolbar">
-              <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>account_circle</mat-icon>
+              <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"> -->
+                <!-- <mat-icon>account_circle</mat-icon>  -->
+                <!-- <div class="circle-pro">
+                  <strong class="pro-post">{{qs.first_name.substring(0, 1)}} {{qs.last_name.substring(0, 1)}}</strong>
+                </div>
+              </button> -->
+              <button mat-mini-fab  aria-label="Example icon button with a home icon" class="circle-pro">
+                {{qs.first_name.substring(0, 1).toString()}}{{qs.last_name.substring(0, 1).toString()}}
               </button>
-              <span>{{qs.first_name}} {{qs.last_name}}</span>
+              
+              <span class="user-name">{{qs.first_name}} {{qs.last_name}}</span>
               <span class="example-spacer"></span>
               <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
