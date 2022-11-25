@@ -23,5 +23,9 @@ export class HomePageService {
          return this.http.get<any>(`${environment.apiUrl}/api/questions`, { params: req, observe: 'response' });
        }
 
+    createQuestion(data: any): Observable<EntityResponseType> {
+        return this.http.post<any>(`${environment.apiUrl}/api/quesion/create/1`, data, { observe: 'response' });
+    }
+
 }
 

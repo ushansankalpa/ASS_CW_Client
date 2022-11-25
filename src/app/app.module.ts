@@ -19,6 +19,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { SearchComponent } from './component/search/search.component';
+import { BookmarkComponent } from './component/bookmark/bookmark.component';
+import { FeedComponent } from './component/feed/feed.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreateQuestionComponent } from './component/home/create-question/create-question.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+import {EditorModule} from 'primeng/editor';
 
 @NgModule({
   declarations: [
@@ -28,13 +37,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HomeComponent,
     UserprofileComponent,
     SidenavComponent,
+    SearchComponent,
+    BookmarkComponent,
+    FeedComponent,
+    CreateQuestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule, 
+    FormsModule,
       ReactiveFormsModule,
       MatCardModule,
       MatButtonModule,
@@ -43,6 +56,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
       MatToolbarModule,
       MatMenuModule,
       MatSidenavModule,
+      MatDialogModule,
+      MatFormFieldModule,
+      MatInputModule,
+    MatChipsModule,
+    EditorModule
+    
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

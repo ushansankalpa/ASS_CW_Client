@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>
+    ASK A QUESTION
+</h2>
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+<div mat-dialog-content>
+    
+        <div class="example-container">
+            <mat-form-field   class="flex-field">
+                <mat-label>Question Title</mat-label>
+                <input formControlName="questionTitle" matInput>
+              </mat-form-field>
+    
+              <!-- <mat-form-field   class="flex-field">
+                <mat-label>Question Description</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field> -->
+    
+              <!-- <mat-form-field appearance="fill"  class="flex-field">
+                <mat-label>Input</mat-label>
+                
+              </mat-form-field> -->
+              <div style="margin-bottom: 15px;">
+                <mat-label>Question Description</mat-label>
+                <p-editor formControlName="questionDes"  [style]="{'height':'320px'}"></p-editor>
+              </div>
+              
+
+              <!-- <div class="flex-auto" style="padding: 20px; display: flex; border: 3px solid #d7d5d5; border-radius: 5px; margin-bottom: 15px;">
+                <input   type="file" id="fileInput">
+              </div> -->
+    
+              <mat-form-field  class="example-chip-list">
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                              [removable]="removable" (removed)="remove(tag)">
+                        {{tag.name}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="Tags..."
+                           [matChipInputFor]="chipList"
+                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                           [matChipInputAddOnBlur]="addOnBlur"
+                           (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+
+    
+
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" type="submit" cdkFocusInitial>Create</button>
+  </mat-dialog-actions>
+</form>
