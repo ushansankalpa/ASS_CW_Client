@@ -26,6 +26,9 @@ export class HomePageService {
     createQuestion(data: any): Observable<EntityResponseType> {
         return this.http.post<any>(`${environment.apiUrl}/api/quesion/create/1`, data, { observe: 'response' });
     }
+    upVoteQuestion(id: any): Observable<EntityResponseType> {
+        return this.http.put<any>(`${environment.apiUrl}/api/upvote/update/${id}`, { observe: 'response' });
+    }
 
 }
 

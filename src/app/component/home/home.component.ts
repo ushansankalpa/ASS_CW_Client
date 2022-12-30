@@ -59,11 +59,28 @@ export class HomeComponent implements OnInit {
         map((res: HttpResponse<any>) => res.body)
     ).subscribe(
         (res: any) => {
-            
+            this.getData();
         },
         (res: HttpErrorResponse) => this.onError(res.message)
     );
 
+  }
+
+  protected subscribeToSaveResponseUpvote(result: Observable<HttpResponse<any>>) {
+    debugger
+    result.pipe(
+        map((res: HttpResponse<any>) => res)
+    ).subscribe(
+        (res: any) => {
+            this.getData();
+        },
+        (res: HttpErrorResponse) => this.onError(res.message)
+    );
+
+  }
+
+  upvote(question_id:any){
+    this.subscribeToSaveResponseUpvote(this.homePageService.upVoteQuestion(question_id));
   }
 
   protected onError(errorMessage: string) {

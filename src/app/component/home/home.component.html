@@ -65,7 +65,7 @@
           </mat-card-content>
 
           <mat-card-actions>
-            <button mat-button>LIKE</button>
+            <button mat-button (click)="upvote(qs.question_id)">LIKE</button><b><i>{{qs.question_votes}}</i></b>
             <span fxFlex></span>
             <button mat-button>SHARE</button>
               <mat-expansion-panel>
