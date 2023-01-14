@@ -75,7 +75,7 @@ export class CreateQuestionComponent implements OnInit {
     const obj: any = {};
     obj.question_title = this.form.get('questionTitle')?.value;
     obj.question_des = this.form.get('questionDes')?.value;
-    
+    obj.question_img = this.form.get('questionDes')?.value;
     return obj;
   }
 

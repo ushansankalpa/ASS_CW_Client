@@ -7,6 +7,12 @@
     background-color: #f7f7f7;
   }
 
+  .ans-example-card {
+    max-width: 850px;
+    margin: 10px 0 10px 0;
+    background-color: #fbfbfb;
+  } 
+
   .example-spacer {
     flex: 1 1 auto;
   }
@@ -16,6 +22,13 @@
     color: white;
     height: 38px;
     font-size: 17px;
+  }
+
+  .ans-post-toolbar{
+    background-color: #505050;
+    color: white;
+    height: 20px;
+    font-size: 10px;
   }
 
   .circle-pro{

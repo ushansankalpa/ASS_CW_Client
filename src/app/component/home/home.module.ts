@@ -8,6 +8,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {EditorModule} from 'primeng/editor';
+import { CreateAnswerComponent } from './create-answer/create-answer.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,8 @@ import {EditorModule} from 'primeng/editor';
     exports: [RouterModule],
     declarations: [
       
-    ],
+    
+    
+  ],
   })
 export class HomeModule{}

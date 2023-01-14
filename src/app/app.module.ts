@@ -28,6 +28,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import {EditorModule} from 'primeng/editor';
+import { CreateAnswerComponent } from './component/home/create-answer/create-answer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {EditorModule} from 'primeng/editor';
     SearchComponent,
     BookmarkComponent,
     FeedComponent,
-    CreateQuestionComponent
+    CreateQuestionComponent,
+    CreateAnswerComponent
   ],
   imports: [
     BrowserModule,

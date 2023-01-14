@@ -23,11 +23,29 @@ export class HomePageService {
          return this.http.get<any>(`${environment.apiUrl}/api/questions`, { params: req, observe: 'response' });
        }
 
-    createQuestion(data: any): Observable<EntityResponseType> {
-        return this.http.post<any>(`${environment.apiUrl}/api/quesion/create/1`, data, { observe: 'response' });
+    createQuestion(data: any, id:any): Observable<EntityResponseType> {
+        return this.http.post<any>(`${environment.apiUrl}/api/quesion/create/${id}`, data, { observe: 'response' });
     }
+
+    createAnswers(data: any, id:any): Observable<EntityResponseType> {
+        return this.http.post<any>(`${environment.apiUrl}/api/answers/create/${id}`, data, { observe: 'response' });
+    }
+
     upVoteQuestion(id: any): Observable<EntityResponseType> {
         return this.http.put<any>(`${environment.apiUrl}/api/upvote/update/${id}`, { observe: 'response' });
+    }
+
+    anwsUpVoteQuestion(id: any): Observable<EntityResponseType> {
+        return this.http.put<any>(`${environment.apiUrl}/api/upvote/ans/${id}`, { observe: 'response' });
+    }
+
+    answers(id?: any): Observable<EntityArrayResponseType> {
+        // const options = createRequestOption(req);
+         return this.http.get<any>(`${environment.apiUrl}/api/answers/${id}`, { observe: 'response' });
+       }
+
+    getUser(): Observable<EntityResponseType> {
+        return this.http.get<any>(`${environment.apiUrl}/api/user`, { observe: 'response' });
     }
 
 }
