@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookmarkComponent } from './component/bookmark/bookmark.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path:'profile',
     component: UserprofileComponent
+    //loadChildren: () => import('././component/userprofile/userprofile.module').then(m => m.UserProfileModule),
+  },
+  {
+    path:'bookmark',
+    component: BookmarkComponent
     //loadChildren: () => import('././component/userprofile/userprofile.module').then(m => m.UserProfileModule),
   }
 ];

@@ -48,5 +48,18 @@ export class HomePageService {
         return this.http.get<any>(`${environment.apiUrl}/api/user`, { observe: 'response' });
     }
 
+    search(data: any): Observable<EntityArrayResponseType> {
+        return this.http.post<any>(`${environment.apiUrl}/api/search`, data, { observe: 'response' });
+    }
+
+    bookmark(qid: any, userid: any): Observable<EntityArrayResponseType> {
+        return this.http.post<any>(`${environment.apiUrl}/api/bookmarks/add/${qid}/${userid}`, { observe: 'response' });
+    }
+
+    queryProfile(id?: any): Observable<EntityArrayResponseType> {
+        // const options = createRequestOption(req);
+         return this.http.get<any>(`${environment.apiUrl}/api/profile/question/${id}`, { observe: 'response' });
+       }
+
 }
 

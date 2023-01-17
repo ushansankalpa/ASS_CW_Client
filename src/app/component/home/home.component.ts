@@ -1,5 +1,6 @@
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { filter, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -19,12 +20,17 @@ export class HomeComponent implements OnInit {
   answers: any[] = [];
   panelOpenState = false;
   ques_id:number | undefined;
-  constructor(protected homePageService: HomePageService,public dialog: MatDialog) { }
+  form!:FormGroup;
+  userId: number | undefined;
+  constructor(protected homePageService: HomePageService,public dialog: MatDialog,private fb: FormBuilder) { }
   
 
   ngOnInit(): void {
     this.getData();
     this.url = environment.apiUrl;
+    this.form = this.fb.group({
+      search: ['', [Validators.required]],
+    });
   }
 
   getData() {
@@ -52,7 +58,8 @@ export class HomeComponent implements OnInit {
       width: '750px',
     }).afterClosed().subscribe(result => {
       if(result){
-        this.subscribeToSaveResponse(this.homePageService.createQuestion(result,1));
+        const user_id = JSON.parse(localStorage.getItem('user_id') || '{}');
+        this.subscribeToSaveResponse(this.homePageService.createQuestion(result,user_id));
       }
       
     });
@@ -128,6 +135,45 @@ export class HomeComponent implements OnInit {
         ).subscribe(
             (res: any) => {
               this.answers = res.data;
+            },
+            (res: HttpErrorResponse) => this.onRequestError(res.message)
+        );
+  }
+
+  search(){
+    const object = this.createSaveObject();
+    return  this.homePageService
+        .search(object)
+        .pipe(
+            filter((res: HttpResponse<any>) => res.ok),
+            map((res: HttpResponse<any>) => res.body)
+        ).subscribe(
+            (res: any) => {
+              this.questions = res;
+            },
+            (res: HttpErrorResponse) => this.onRequestError(res.message)
+        );
+  }
+
+  createSaveObject() {
+    const obj: any = {};
+    obj.keyword = this.form.get('search')?.value;
+    return obj;
+  }
+
+  addBookmark(question: any){
+    let userid = localStorage.getItem('user_id');
+    if (userid) {
+      this.userId = parseInt(userid);
+    }
+    return  this.homePageService
+        .bookmark(question.question_id, this.userId)
+        .pipe(
+            filter((res: HttpResponse<any>) => res.ok),
+            map((res: HttpResponse<any>) => res.body)
+        ).subscribe(
+            (res: any) => {
+              
             },
             (res: HttpErrorResponse) => this.onRequestError(res.message)
         );

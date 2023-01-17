@@ -1,1 +1,153 @@
-<p>bookmark works!</p>
+<div class="row" style="margin: 0;background-color: #f5f5f5;">
+    <div class="col-md-1">
+    </div>
+  
+  
+    <div class="col-md-8" style="background-color: #ffffff;">
+      <div class="container">
+        <mat-card style="margin-top:10px; text-align:center;background-color: rgb(234, 234, 234);">
+          <h1>Bookmarks</h1>
+        </mat-card>
+  
+        <div *ngFor="let qs of questions" style="justify-content: center;" class="row justify-content-center">
+          <mat-card class="example-card">
+            <p>
+              <mat-toolbar class="post-toolbar">
+                <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"> -->
+                <!-- <mat-icon>account_circle</mat-icon>  -->
+                <!-- <div class="circle-pro">
+                    <strong class="pro-post">{{qs.first_name.substring(0, 1)}} {{qs.last_name.substring(0, 1)}}</strong>
+                  </div>
+                </button> -->
+                <button mat-mini-fab aria-label="Example icon button with a home icon" class="circle-pro">
+                  {{qs.first_name.substring(0, 1).toString()}}{{qs.last_name.substring(0, 1).toString()}}
+                </button>
+  
+                <span class="user-name">{{qs.first_name}} {{qs.last_name}}</span>
+                <span class="example-spacer"></span>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="addBookmark(qs)">
+                    <mat-icon>bookmark</mat-icon>
+                    <span>Bookmark</span>
+                  </button>
+                </mat-menu>
+              </mat-toolbar>
+            </p>
+  
+  
+            <mat-card-header>
+              <mat-card-title>{{qs.question_title}}</mat-card-title>
+              <!-- <mat-card-subtitle>{{qs.question_tag}}</mat-card-subtitle> -->
+            </mat-card-header>
+  
+            <mat-card-content style="min-height: 25px; padding-top: 10px;">
+              <p [innerHTML]="qs.question_img"></p>
+              <!-- <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                It has survived not only five centuries, but also the leap into electronic typesetting, 
+                remaining essentially unchanged. It was popularised in the 1960s with 
+                the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
+                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              </p> -->
+  
+              <!-- <div style="text-align: center;">
+                <img  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              </div> -->
+  
+  
+            </mat-card-content>
+  
+            <mat-card-actions>
+              <button mat-button (click)="upvote(qs.question_id)">LIKE</button><b><i>{{qs.question_votes}}</i></b>
+              <span fxFlex></span>
+              <!-- <button mat-button>SHARE</button> -->
+              <button mat-button (click)="replyAnwsers(qs)">Answers</button>
+              <mat-expansion-panel  (opened)="panelOpenState = true" (closed)="panelOpenState = false" (afterExpand)="getAnswers(qs.question_id)">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Answers
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Show answers
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+  
+                <!-- answers -->
+                <div *ngFor="let qs of answers" style="justify-content: center;" class="row justify-content-center">
+                  <mat-card class="ans-example-card">
+                    <p>
+                      <mat-toolbar class="ans-post-toolbar">
+                        <!-- <button mat-mini-fab aria-label="Example icon button with a home icon" class="ans-circle-pro">
+                          {{qs.first_name.substring(0, 1).toString()}}{{qs.last_name.substring(0, 1).toString()}}
+                        </button> -->
+  
+                        <span class="user-name">{{qs.first_name}} {{qs.last_name}}</span>
+                        <span class="example-spacer"></span>
+                        <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item>
+                            <mat-icon>bookmark</mat-icon>
+                            <span>Bookmark</span>
+                          </button>
+                        </mat-menu> -->
+                      </mat-toolbar>
+                    </p>
+  
+  
+                    <!-- <mat-card-header>
+                      <mat-card-title>{{qs.question_title}}</mat-card-title> -->
+                      <!-- <mat-card-subtitle>{{qs.question_tag}}</mat-card-subtitle> -->
+                    <!-- </mat-card-header> -->
+  
+                    <mat-card-content style="min-height: 25px; padding-top: 10px;">
+                      <p [innerHTML]="qs.answer_des"></p>
+                    </mat-card-content>
+  
+                    <mat-card-actions>
+                      <button mat-button (click)="ansUpVote(qs.answer_id)">
+                        <mat-icon>thumb_up</mat-icon>
+                      </button><b><i>{{qs.answer_votes}}</i></b>
+                      <span fxFlex></span>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+  
+  
+  
+  
+              </mat-expansion-panel>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="col-md-3">
+      <div class="container">
+        <mat-card style="margin-top:10px; text-align:center;background-color: rgb(234, 234, 234);">
+          <form [formGroup]="form" >
+          
+  
+            <mat-form-field   class="flex-field" style="padding: 12px;">
+              <mat-label>Search</mat-label>
+              <input formControlName="search" matInput>
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" (click)="search()">Search</button>
+        </form>
+        </mat-card>
+  
+        <mat-card class="example-card">
+          <mat-card-content>Recent Bookmark</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>

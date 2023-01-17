@@ -95,3 +95,63 @@ p {
     margin-top: 0;
     margin-bottom: 1rem
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap');
+.example-card {
+    max-width: 850px;
+    margin: 10px 0 10px 0;
+    background-color: #f7f7f7;
+  }
+
+  .ans-example-card {
+    max-width: 850px;
+    margin: 10px 0 10px 0;
+    background-color: #fbfbfb;
+  } 
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .post-toolbar{
+    background-color: #0072c0;
+    color: white;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .ans-post-toolbar{
+    background-color: #505050;
+    color: white;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .circle-pro{
+    width: 30px;
+    height: 30px;
+    background-color: aliceblue;
+    color: #0072c0;
+    margin-right: 10px;
+    text-decoration: solid;
+    padding-bottom: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+
+  .pro-post{
+    padding-bottom: 20px;
+    bottom: 30px;
+    margin-bottom: 30px;
+  }
+
+  .user-name{
+    font-family: 'PT Serif', serif;
+    // font-size: 17px;
+    // font-weight: bold;
+    // margin-bottom: 0px;
+  }

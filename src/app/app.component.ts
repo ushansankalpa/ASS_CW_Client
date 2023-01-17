@@ -86,4 +86,9 @@ export class AppComponent {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
+  logOut(){
+    localStorage.removeItem('user_id');
+    this.router.navigate(['/']);
+  }
+
 }

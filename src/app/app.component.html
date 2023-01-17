@@ -90,7 +90,7 @@
           <mat-icon style="font-size: 25px;">account_circle</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item (click)="logOut()">
             <mat-icon>logout</mat-icon>
             <span>Sign out</span>
           </button>
@@ -116,13 +116,7 @@
                         <p routerLink="/profile/" routerLinkActive="active" ><i> <mat-icon>person</mat-icon> </i><span *ngIf="isExpanded" >Profile</span></p>
                       </li>
                       <li>
-                        <p routerLink="/search/" routerLinkActive="active"><i> <mat-icon>search</mat-icon> </i ><span *ngIf="isExpanded" >Search</span></p>
-                      </li>
-                      <li>
                         <p routerLink="/bookmark/" routerLinkActive="active"><i> <mat-icon>bookmark</mat-icon> </i><span *ngIf="isExpanded">Bookmark</span></p>
-                      </li>
-                      <li>
-                        <p routerLink="/feed/" routerLinkActive="active"><i> <mat-icon>feed</mat-icon> </i><span *ngIf="isExpanded">Feed</span></p>
                       </li>
                       <li>
                         <div class="divider"></div>
