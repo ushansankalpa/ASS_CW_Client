@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>
+    UPDATE QUESTION
+</h2>
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+<div mat-dialog-content>
+    
+        <div class="example-container">
+            <mat-form-field   class="flex-field" style="width: 100%;">
+                <mat-label>Question Title</mat-label>
+                <input formControlName="questionTitle" matInput >
+              </mat-form-field>
+
+              <div style="margin-bottom: 15px;">
+                <mat-label>Question Description</mat-label>
+                <p-editor formControlName="questionDes"  [style]="{'height':'320px'}"></p-editor>
+              </div>
+        </div>
+
+    
+
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" type="submit" cdkFocusInitial>Update</button>
+  </mat-dialog-actions>
+</form>

@@ -179,4 +179,9 @@ export class HomeComponent implements OnInit {
         );
   }
 
+  rest(){
+    this.form.reset();
+    this.getData();
+  }
+
 }

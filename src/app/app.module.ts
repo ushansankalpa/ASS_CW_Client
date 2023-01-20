@@ -29,6 +29,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import {EditorModule} from 'primeng/editor';
 import { CreateAnswerComponent } from './component/home/create-answer/create-answer.component';
+import { DeletequestioinComponent } from './component/userprofile/deletequestioin/deletequestioin.component';
+import { UpdatequestionComponent } from './component/userprofile/updatequestion/updatequestion.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CreateAnswerComponent } from './component/home/create-answer/create-ans
     BookmarkComponent,
     FeedComponent,
     CreateQuestionComponent,
-    CreateAnswerComponent
+    CreateAnswerComponent,
+    DeletequestioinComponent,
+    UpdatequestionComponent
   ],
   imports: [
     BrowserModule,

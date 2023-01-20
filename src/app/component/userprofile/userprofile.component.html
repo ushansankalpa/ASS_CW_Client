@@ -3,7 +3,7 @@
     <div class="card"> 
         <!-- <img class="card-img-top" src="../../../assets/coverpic.png" alt="Card image cap"> -->
         <div class="card-body little-profile text-center">
-            <div class="pro-img" style="margin-top: 10px;"><img src="../../../assets/profile.png" alt="user"></div>
+            <div class="pro-img" style="margin-top: 10px;"><img src="https://w1790395.users.ecs.westminster.ac.uk/assets/profile.png" alt="user"></div>
             <h3 class="m-b-0">{{user.first_name}} {{user.last_name}}</h3>
             <div class="row text-center m-t-20">
             </div>
@@ -25,15 +25,19 @@
             
                           <span class="user-name">{{qs.first_name}} {{qs.last_name}}</span>
                           <span class="example-spacer"></span>
-                          <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                             <mat-icon>more_vert</mat-icon>
                           </button>
                           <mat-menu #menu="matMenu">
-                            <button mat-menu-item (click)="addBookmark(qs)">
-                              <mat-icon>bookmark</mat-icon>
-                              <span>Bookmark</span>
+                            <button mat-menu-item (click)="update(qs)">
+                              <mat-icon>edit</mat-icon>
+                              <span>Edit</span>
                             </button>
-                          </mat-menu> -->
+                            <button mat-menu-item (click)="deleted(qs)">
+                              <mat-icon>delete</mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
                         </mat-toolbar>
                       </p>
             

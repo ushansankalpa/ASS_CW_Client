@@ -61,5 +61,14 @@ export class HomePageService {
          return this.http.get<any>(`${environment.apiUrl}/api/profile/question/${id}`, { observe: 'response' });
        }
 
+       updateQuestion(data: any, id:any): Observable<EntityResponseType> {
+        return this.http.put<any>(`${environment.apiUrl}/api/quesion/update/${id}`, data, { observe: 'response' });
+       }
+
+       deleteQuestion(id:any): Observable<EntityResponseType> {
+        return this.http.delete<any>(`${environment.apiUrl}/api/quesion/delete/${id}`, { observe: 'response' });
+       }
+
+
 }
 

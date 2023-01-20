@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 import { CreateAnswerComponent } from '../home/create-answer/create-answer.component';
 import { CreateQuestionComponent } from '../home/create-question/create-question.component';
 import { HomePageService } from '../home/home.service';
+import { DeletequestioinComponent } from './deletequestioin/deletequestioin.component';
+import { UpdatequestionComponent } from './updatequestion/updatequestion.component';
 
 
 @Component({
@@ -145,5 +147,32 @@ export class UserprofileComponent implements OnInit {
             (res: HttpErrorResponse) => this.onRequestError(res.message)
         );
   }
+
+  update(qs:any){
+    this.dialog.open(UpdatequestionComponent, {
+      width: '750px',
+      data:qs
+    }).afterClosed().subscribe(result => {
+      if(result){
+        this.subscribeToSaveResponse(this.homePageService.updateQuestion(result,qs.question_id));
+      }
+      
+    });
+  }
+
+  
+  deleted(qs:any){
+    const dialogRef = this.dialog.open(DeletequestioinComponent, {
+      data: {qes: qs.question_title},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.subscribeToSaveResponse(this.homePageService.deleteQuestion(qs.question_id));
+      }
+      
+    });
+  }
+  
 
 }
